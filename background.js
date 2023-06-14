@@ -4,7 +4,7 @@
 async function openBilingual() {
   let tracks = document.getElementsByTagName("track");
   let en;
-  let tr;
+  //let tr;
   if (tracks.length) {
     for (let i = 0; i < tracks.length; i++) {
       if (tracks[i].srclang === "en") {
@@ -22,7 +22,7 @@ async function openBilingual() {
       // .....cümle bitti. Yeni cümle
       //Burada sadece nokta karakterinden sonra boşluk olan durumlarda cümlenin bittiği varsayılmıştır.
       // 75.3 , model.fit gibi özel ifade belirten durumlarda noktayı cümle bitişi olarak algılamaması için.
-      var endSentence = [];
+      let endSentence = [];
       for (let i = 0; i < cues.length; i++) {
         for (let j = 0; j < cues[i].text.length; j++) {
           if (cues[i].text[j] == "." && cues[i].text[j + 1] == undefined) {
@@ -32,22 +32,30 @@ async function openBilingual() {
       }
       ///////////////////////
 
-      var cuesTextList = getTexts(cues);
+      let cuesTextList = getTexts(cues);
 
       getTranslation(cuesTextList, (translatedText) => {
-        var translatedList = translatedText.split(" z~~~z");
+        //console.log("getTranslation. translatedText:", translatedText);
+        let translatedList = translatedText.split(" z~~~z");
+        //console.log("getTranslation. translatedList:", translatedList);
         translatedList.splice(-1, 1);
+        // console.log(
+        //   "getTranslation. translatedList:.splice(-1, 1)",
+        //   translatedList
+        // );
 
         for (let i = 0; i < endSentence.length; i++) {
           if (i != 0) {
             for (let j = endSentence[i - 1] + 1; j <= endSentence[i]; j++) {
-              cues[j].text = translatedList[i];
-              //console.log(translatedList[i])
+              cues[j].text = cues[j].text.split(" z~~~z")[0];
+              cues[j].text += "\n\n" + translatedList[i].trim();
+              // console.log(translatedList[i]);
             }
           } else {
             for (let j = 0; j <= endSentence[i]; j++) {
-              cues[j].text = translatedList[i];
-              //console.log(translatedList[i])
+              cues[j].text = cues[j].text.split(" z~~~z")[0];
+              cues[j].text += "\n\n" + translatedList[i].trim();
+              // console.log(translatedList[i]);
             }
           }
         }
@@ -106,10 +114,12 @@ function getTranslation(words, callback) {
         if (xhr.status === 200 || xhr.status === 304) {
           const translatedList = JSON.parse(xhr.responseText)[0];
           let translatedText = "";
-          for (let i = 0; i < translatedList.length; i++) {
-            translatedText += translatedList[i][0];
+          if (translatedList) {
+            for (let i = 0; i < translatedList.length; i++) {
+              translatedText += translatedList[i][0];
+            }
+            callback(translatedText);
           }
-          callback(translatedText);
         }
       }
     };
@@ -120,5 +130,6 @@ function getTranslation(words, callback) {
 chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
   if (request.method == "translate") {
     openBilingual();
+    sendResponse({ method: "translated" });
   }
 });
