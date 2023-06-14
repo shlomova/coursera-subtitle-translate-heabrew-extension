@@ -108,20 +108,21 @@ function getTexts(cues) {
   return cuesTextList;
 }
 
-// Add styles dynamically to the subtitles
-function addSubtitleStyles(styles, subtitleTrack) {
-  const styleElement = document.createElement("style");
-  //styleElement.textContent = `#${subtitleTrack.id}::cue { ${styles} }`;
-  styleElement.textContent = `::cue { ${styles} }`;
-  document.head.appendChild(styleElement);
-}
+function resizeSub(size) {
+  //let size = result.size;
+  size = size / 100;
+  // alert('Value is set to ' + size);
+  let css = `video::-webkit-media-text-track-display {font-size: ${size}em;}`,
+    head = document.head || document.getElementsByTagName("head")[0],
+    style = document.createElement("style");
 
-async function add_subtitle_styles() {
-  const video = document.getElementById("video_player_html5_api");
-  const subtitleTrack = video?.textTracks[0]; // Assuming it's the first track
-  console.log(" *** add_subtitle_styles", video, subtitleTrack);
-  // Usage: Add font-size and color styles to the subtitles
-  addSubtitleStyles("font-size: 16px; color: red;", subtitleTrack);
+  style.type = "text/css";
+  if (style.styleSheet) {
+    style.styleSheet.cssText = css;
+  } else {
+    style.appendChild(document.createTextNode(css));
+  }
+  head.appendChild(style);
 }
 
 function getTranslation(words, callback) {
@@ -153,7 +154,7 @@ function getTranslation(words, callback) {
 
 chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
   if (request.method == "translate") {
-    //add_subtitle_styles();
+    resizeSub(75);
     openBilingual();
     sendResponse({ method: "translated" });
   }
