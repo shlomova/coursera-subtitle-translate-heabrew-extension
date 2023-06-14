@@ -15,15 +15,19 @@ async function openBilingual() {
     if (en) {
       en.track.mode = "showing";
 
+      //addSubtitleStyles("font-size: 16px; color: red;", en);
+
       await sleep(500);
       let cues = en.track.cues;
 
-      //İngilizce yazıdaki cümle bitiş anlarının tespiti.
-      // .....cümle bitti. Yeni cümle
-      //Burada sadece nokta karakterinden sonra boşluk olan durumlarda cümlenin bittiği varsayılmıştır.
-      // 75.3 , model.fit gibi özel ifade belirten durumlarda noktayı cümle bitişi olarak algılamaması için.
+      // Виявлення моментів закінчення речення в англійському письмі.
+      // ..... кінець речення. Нове речення
+      // Тут вважається, що речення закінчується лише у випадках, коли після символу крапки стоїть пробіл.
+      // 75.3, model.fit і т.д., щоб не сприймати крапку як кінець речення.
       let endSentence = [];
       for (let i = 0; i < cues.length; i++) {
+        cues[i].fontSize = "5px";
+        cues[i].size = "97";
         for (let j = 0; j < cues[i].text.length; j++) {
           if (cues[i].text[j] == "." && cues[i].text[j + 1] == undefined) {
             endSentence.push(i);
@@ -36,7 +40,7 @@ async function openBilingual() {
 
       getTranslation(cuesTextList, (translatedText) => {
         //console.log("getTranslation. translatedText:", translatedText);
-        let translatedList = translatedText.split(" z~~~z");
+        let translatedList = translatedText.split(" u~~~u");
         //console.log("getTranslation. translatedList:", translatedList);
         translatedList.splice(-1, 1);
         // console.log(
@@ -47,13 +51,17 @@ async function openBilingual() {
         for (let i = 0; i < endSentence.length; i++) {
           if (i != 0) {
             for (let j = endSentence[i - 1] + 1; j <= endSentence[i]; j++) {
-              cues[j].text = cues[j].text.split(" z~~~z")[0];
+              cues[j].text = cues[j].text
+                .split(" u~~~u")[0]
+                .replace(/\n/g, " ");
               cues[j].text += "\n\n" + translatedList[i].trim();
               // console.log(translatedList[i]);
             }
           } else {
             for (let j = 0; j <= endSentence[i]; j++) {
-              cues[j].text = cues[j].text.split(" z~~~z")[0];
+              cues[j].text = cues[j].text
+                .split(" u~~~u")[0]
+                .replace(/\n/g, " ");
               cues[j].text += "\n\n" + translatedList[i].trim();
               // console.log(translatedList[i]);
             }
@@ -66,9 +74,9 @@ async function openBilingual() {
 
 String.prototype.replaceAt = function (index, replacement) {
   return (
-    this.substr(0, index) +
+    this.substring(0, index) +
     replacement +
-    this.substr(index + replacement.length)
+    this.substring(index + replacement.length)
   );
 };
 
@@ -90,14 +98,30 @@ function getTexts(cues) {
     if (cues[i].text[cues[i].text.length - 1] == ".") {
       cues[i].text = cues[i].text.replaceAt(
         cues[i].text.length - 1,
-        ". z~~~z "
+        ". u~~~u "
       );
-      //console.log(cues[i].text.replaceAt(cues[i].text.length-1, ". z~~~z "))
+      //console.log(cues[i].text.replaceAt(cues[i].text.length-1, ". u~~~u "))
     }
 
     cuesTextList += cues[i].text.replace(/\n/g, " ") + " ";
   }
   return cuesTextList;
+}
+
+// Add styles dynamically to the subtitles
+function addSubtitleStyles(styles, subtitleTrack) {
+  const styleElement = document.createElement("style");
+  //styleElement.textContent = `#${subtitleTrack.id}::cue { ${styles} }`;
+  styleElement.textContent = `::cue { ${styles} }`;
+  document.head.appendChild(styleElement);
+}
+
+async function add_subtitle_styles() {
+  const video = document.getElementById("video_player_html5_api");
+  const subtitleTrack = video?.textTracks[0]; // Assuming it's the first track
+  console.log(" *** add_subtitle_styles", video, subtitleTrack);
+  // Usage: Add font-size and color styles to the subtitles
+  addSubtitleStyles("font-size: 16px; color: red;", subtitleTrack);
 }
 
 function getTranslation(words, callback) {
@@ -129,6 +153,7 @@ function getTranslation(words, callback) {
 
 chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
   if (request.method == "translate") {
+    //add_subtitle_styles();
     openBilingual();
     sendResponse({ method: "translated" });
   }
