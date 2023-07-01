@@ -19,6 +19,8 @@ Good work.
 ### Extension
 
 ![](https://github.com/mucahit-sahin/coursera-subtitle-translate-extension/blob/master/images/extension.png)
+![зображення](https://github.com/lexxai/coursera-subtitle-translate-extension/assets/3278842/cdcd860a-0d89-457b-a0fb-86d8528b6b58)
+
 
 ## Example Image
 
