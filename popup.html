@@ -9,15 +9,10 @@
 
   <body>
     <div style="padding: 4px; display: flex; flex-direction: column">
-      <span
-        style="
-          text-align: center;
-          font-size: medium;
-          font-weight: bold;
-          margin-bottom: 5px;
-        "
+      <span style="text-align: center; font-size: medium; font-weight: bold; margin-bottom: 5px"
         >Coursera Translate Extension</span
       >
+      <label for="lang">Translation language:</label>
       <select id="lang">
         <option value="uk">Ukrainian</option>
         <option value="tr">Turkish</option>
@@ -52,10 +47,12 @@
         <option value="th">Thai</option>
         <option value="vi">Vietnamese</option>
       </select>
+      <label for="fontsize" style="margin-top: 10px"></label>The font size of subtitles:</label>
+      <input type="number" id="fontsize" min="10" max="300" size="5" value="75" />
       <button
-        id="translateBtn"
+         id="translateBtn"
         style="
-          margin-top: 2px;
+          margin-top: 12px;
           background-color: #337357;
           color: white;
           outline: none;
@@ -67,26 +64,15 @@
       >
         Translate
       </button>
-
-      <div
-        style="display: flex; flex-direction: column; flex: 1; margin-top: 10px"
-      >
-        <span style="font-size: medium; font-weight: bold; text-align: center"
-          >Contact</span
-        >
+      <div style="font-size: medium; margin-top: 10px; font-weight: bold; text-align: center">Contact</div>
+      <div style="display: grid; grid-template-columns: auto auto; grid-gap: 5px; margin-top: 4px">
         <span style="font-size: small">
           <a
             href="
                 https://github.com/mucahit-sahin
                 "
             target="_blank"
-            style="
-              display: flex;
-              flex-direction: row;
-              border: none;
-              border-radius: 5px;
-              padding: 2px;
-            "
+            style="display: flex; flex-direction: row; border: none; border-radius: 5px; padding: 2px"
           >
             <img
               src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png"
@@ -101,20 +87,43 @@
                 https://www.buymeacoffee.com/mucahitsahin
                 "
             target="_blank"
-            style="
-              display: flex;
-              flex-direction: row;
-              border: none;
-              border-radius: 5px;
-              padding: 4px;
-              background-color: #ff6937;
-              text-decoration: none;
-              color: white;
-            "
           >
-            <span style="font-size: small; text-align: center; width: 100%"
-              >Buy me a coffee</span
-            >
+            <img
+              src="https://media.giphy.com/media/TDQOtnWgsBx99cNoyH/giphy.gif"
+              alt="Buy me a coffee"
+              title="Buy me a coffee"
+              style="width: 20px; height: 20px; margin-right: 5px"
+            />
+          </a>
+        </span>
+        <span style="font-size: small">
+          <a
+            href="
+                https://github.com/lexxai
+                "
+            target="_blank"
+            style="display: flex; flex-direction: row; border: none; border-radius: 5px; padding: 2px"
+          >
+            <img
+              src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png"
+              style="width: 20px; height: 20px; margin-right: 5px"
+            />
+            <span style="font-size: small">lexxai</span>
+          </a>
+        </span>
+        <span style="font-size: small">
+          <a
+            href="
+                https://www.buymeacoffee.com/lex4xai
+                "
+            target="_blank"
+          >
+            <img
+              src="https://media.giphy.com/media/TDQOtnWgsBx99cNoyH/giphy.gif"
+              alt="Buy me a coffee"
+              title="Buy me a coffee"
+              style="width: 20px; height: 20px; margin-right: 5px"
+            />
           </a>
         </span>
       </div>

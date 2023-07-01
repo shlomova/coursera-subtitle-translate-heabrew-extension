@@ -80,10 +80,13 @@ function sleep(ms) {
 function getTexts(cues) {
   let cuesTextList = "";
   let match_pattern = /[.?!]/;
+  let mark_sequence = "u~~~u";
+  let mark_sequence_added = " " + mark_sequence + " ";
   for (let i = 0; i < cues.length; i++) {
+    if (cues[i].text.includes("\n\n")) continue;
     let last_char = cues[i].text[cues[i].text.length - 1];
     if (last_char.match(match_pattern)) {
-      cues[i].text = cues[i].text.replaceAt(cues[i].text.length - 1, last_char + " u~~~u ");
+      cues[i].text = cues[i].text.replaceAt(cues[i].text.length - 1, last_char + mark_sequence_added);
     }
     cuesTextList += cues[i].text.replace(/\n/g, " ") + " ";
   }
@@ -109,7 +112,7 @@ function resizeSub(size) {
 
 function getTranslation(words, callback) {
   chrome.storage.sync.get(["lang"], function (result) {
-    var lang = result.lang;
+    let lang = result.lang;
     const xhr = new XMLHttpRequest();
     let url = `https://translate.googleapis.com/translate_a/single?client=gtx&sl=en&tl=${lang}&dt=t&q=${encodeURI(
       words
@@ -136,8 +139,21 @@ function getTranslation(words, callback) {
 
 chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
   if (request.method == "translate") {
-    resizeSub(75);
+    chrome.storage.sync
+      .get({ fontsize: 75 })
+      .then((result) => {
+        let fontsize = result.fontsize;
+        if (fontsize) {
+          resizeSub(fontsize);
+        } else {
+          resizeSub(75);
+        }
+      })
+      .catch(() => {
+        resizeSub(75);
+      });
+
     openBilingual();
-    sendResponse({ method: "translated" });
+    if (sendResponse) sendResponse({ method: "translated" });
   }
 });
