@@ -10,7 +10,24 @@ Key Features:
 
 - Adjustable Subtitle Size: The CST Extension allows you to customize the size of the displayed subtitles according to your preferences. Whether you prefer larger subtitles for better readability or smaller ones for a less intrusive viewing experience, this feature provides you with the flexibility to adjust the subtitle size to suit your needs.
 
-- The CST Extension is an invaluable tool for Coursera learners who are non-native English speakers or those seeking a deeper understanding of the course content. By enabling real-time subtitle translation and offering a dual subtitle display, it empowers users to overcome language barriers and grasp the material with greater clarity. Improve your learning journey on Coursera today with the CST Extension.
+The CST Extension is an invaluable tool for Coursera learners who are non-native English speakers or those seeking a deeper understanding of the course content. By enabling real-time subtitle translation and offering a dual subtitle display, it empowers users to overcome language barriers and grasp the material with greater clarity. Improve your learning journey on Coursera today with the CST Extension.
+
+
+# Розширення CST: Переклад субтитрів у реальному часі для відео на Coursera
+
+Розширення CST - потужний додаток для браузера, розроблений для поліпшення вашого досвіду навчання на Coursera, який надає переклад субтитрів з англійської мови на вашу вибрану мову у режимі реального часу. За допомогою цього розширення ви зможете швидко перекладати субтитри під час перегляду курсів, що дозволить вам краще розуміти матеріал та правильно сприймати терміни та контекст.
+
+Основні функції:
+
+- Безперервний переклад субтитрів: Розширення CST безперебійно інтегрується з відеоплеєром Coursera, що дозволяє перекладати субтитри у реальному часі. Під час відтворення відео розширення автоматично виявляє англійські субтитри та надає миттєві переклади на вашу обрану мову. Ця функція усуває необхідність вручну перекладати або використовувати зовнішні інструменти, що сприяє більш плавному та ефективному процесу навчання.
+
+- Подвійний відображення субтитрів: Перекладені субтитри відображаються поряд з оригінальними англійськими субтитрами, що надає можливість порівнювати їх одночасно. Ця унікальна функція допомагає зрозуміти матеріал більш повно, даючи можливість отримати інформацію про конкретні терміни та контекст, використовувані в курсі. Маючи обидва переклади під рукою, ви зможете забезпечити більш точне розуміння предметної області.
+
+- Налаштування розміру субтитрів: Розширення CST дозволяє налаштувати розмір відображуваних субтитрів залежно від вашого вибору. Чи ви бажаєте більшого розміру субтитрів для полегшення читання, або меншого, щоб забезпечити менш втручаючий перегляд, ця функція надає вам можливість налаштувати розмір субтитрів згідно з вашими потребами.
+
+Розширення CST є незамінним інструментом для студентів Coursera, які не є рідними англійськомовними говорячими або тих, хто прагне кращого розуміння курсового матеріалу. Забезпечуючи переклад субтитрів у реальному часі та подвійне відображення субтитрів, він надає користувачам можливість подолати мовні бар'єри та засвоїти матеріал з більшою ясністю. Покращуйте свій навчальний процес на Coursera вже сьогодні з розширенням CST.
+
+
 
 
 
