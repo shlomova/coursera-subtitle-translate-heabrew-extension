@@ -28,7 +28,10 @@ The CST Extension is an invaluable tool for Coursera learners who are non-native
 Розширення CST є незамінним інструментом для студентів Coursera, які не є рідними англійськомовними говорячими або тих, хто прагне кращого розуміння курсового матеріалу. Забезпечуючи переклад субтитрів у реальному часі та подвійне відображення субтитрів, він надає користувачам можливість подолати мовні бар'єри та засвоїти матеріал з більшою ясністю. Покращуйте свій навчальний процес на Coursera вже сьогодні з розширенням CST.
 
 
+## Link to browser store
+- [Google Chrome ![Chrome Web Store](https://img.shields.io/chrome-web-store/v/dflliggaoffmbngkophcejkhkllaebjn) ](https://chrome.google.com/webstore/detail/coursera-subtitle-transla/dflliggaoffmbngkophcejkhkllaebjn) 
 
+- Microsoft Edge: ...
 
 
 # Coursera Subtitle Translate Extension
@@ -68,3 +71,5 @@ Did you know that once you finish a course, you lose access to its video materia
 With "CSA - Assistant for saving files from Сoursera", you can effortlessly tackle this challenge in a legal and user-friendly manner. Our extension enables you to save Coursera videos with logical and intuitive file names. Say goodbye to tedious renaming and errors - our assistant takes care of it all!
 
 https://github.com/lexxai/CourseraSaveAssist
+
+
