@@ -49,17 +49,25 @@ async function openBilingual() {
         //   translatedList
         // );
 
+        if (!translatedList) {
+          return;
+        }
+
         for (let i = 0; i < endSentence.length; i++) {
           if (i != 0) {
             for (let j = endSentence[i - 1] + 1; j <= endSentence[i]; j++) {
               cues[j].text = cues[j].text.split(" u~~~u")[0].replace(/\n/g, " ");
-              cues[j].text += "\n\n" + translatedList[i].trim();
+              if (typeof translatedList[i] != "undefined") {
+                cues[j].text += "\n\n" + translatedList[i].trim();
+              }
               // console.log(translatedList[i]);
             }
           } else {
             for (let j = 0; j <= endSentence[i]; j++) {
               cues[j].text = cues[j].text.split(" u~~~u")[0].replace(/\n/g, " ");
-              cues[j].text += "\n\n" + translatedList[i].trim();
+              if (typeof translatedList[i] != "undefined") {
+                cues[j].text += "\n\n" + translatedList[i].trim();
+              }
               // console.log(translatedList[i]);
             }
           }

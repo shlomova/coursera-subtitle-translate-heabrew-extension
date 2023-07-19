@@ -17,6 +17,20 @@ function get_saved_data() {
   });
 }
 
+function some_error(target) {
+  if (target) {
+    target.style.background = "red";
+    target.title = "Error. Are you sure this is the Coursera tab?";
+  }
+}
+
+function ok_state(target) {
+  if (target) {
+    target.style.background = "blue";
+    target.title = "All translated, closing now...";
+  }
+}
+
 document.addEventListener(
   "DOMContentLoaded",
   function () {
@@ -31,11 +45,21 @@ document.addEventListener(
           console.log("Value is set to " + lang, fontsize);
         });
         chrome.tabs.query({ active: true, currentWindow: true }).then((tabs) => {
-          chrome.tabs.sendMessage(tabs[0].id, { method: "translate" }, (response) => {
-            if (response?.method && response.method == "translated") {
-              close_page();
-            }
-          });
+          chrome.tabs
+            .sendMessage(tabs[0].id, { method: "translate" })
+            .then((response) => {
+              if (response?.method && response.method == "translated") {
+                ok_state(checkButton);
+                close_page();
+              } else {
+                console.log("Answer not from target page?");
+                some_error(checkButton);
+              }
+            })
+            .catch(() => {
+              console.log("Not connected target page");
+              some_error(checkButton);
+            });
         });
       },
       false
