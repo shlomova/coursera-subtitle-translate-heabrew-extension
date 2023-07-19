@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
-  "name": "Coursera Subtitle Translation",
-  "description": "Coursera Subtitle Translation (lexxai)",
-  "version": "1.4.2",
+  "name": "__MSG_plug_name__",
+  "description": "__MSG_plug_description__",
+  "version": "1.4.3",
   "action": {
     "default_popup": "popup.html"
   },
@@ -13,5 +13,12 @@
       "js": ["content.js"]
     }
   ],
-  "permissions": ["tabs", "storage", "activeTab"]
+  "permissions": ["storage"],
+  "default_locale": "en",
+  "icons": {
+    "16": "/images/cst-16x16.png",
+    "32": "/images/cst-32x32.png",
+    "64": "/images/cst-64x64.png",
+    "128": "/images/cst-128x128.png"
+  }
 }
