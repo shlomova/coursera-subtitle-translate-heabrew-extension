@@ -54,12 +54,10 @@ Good work.
 
 ### Extension
 
-![](https://github.com/mucahit-sahin/coursera-subtitle-translate-extension/blob/master/images/extension.png)
 ![зображення](https://github.com/lexxai/coursera-subtitle-translate-extension/assets/3278842/cdcd860a-0d89-457b-a0fb-86d8528b6b58)
 
 ## Example Image
 
-![](https://github.com/mucahit-sahin/coursera-subtitle-translate-extension/blob/master/images/example-image1.png)
 ![Screenshot 2023-06-14 202017](https://github.com/lexxai/coursera-subtitle-translate-extension/assets/3278842/dc680681-4b47-4e48-ac14-bc6aea2e9f71)
 
 # CourseraSaveAssist
