@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "__MSG_plug_name__",
   "description": "__MSG_plug_description__",
-  "version": "1.4.3",
+  "version": "1.4.4",
   "action": {
     "default_popup": "popup.html"
   },
