@@ -32,7 +32,7 @@ The CST Extension is an invaluable tool for Coursera learners who are non-native
 - [Google Chrome Web Store ![Chrome Web Store](https://img.shields.io/chrome-web-store/v/dflliggaoffmbngkophcejkhkllaebjn) ](https://chrome.google.com/webstore/detail/coursera-subtitle-transla/dflliggaoffmbngkophcejkhkllaebjn) 
 
 
-- [Microsoft Edge Web Store](https://microsoftedge.microsoft.com/addons/detail/iniekdlcmmpkhpmpppdeedfkfddebdkd) [![Static Badge](https://img.shields.io/badge/microsoft%20web%20store_-v.1.4.4-blue)](https://microsoftedge.microsoft.com/addons/detail/iniekdlcmmpkhpmpppdeedfkfddebdkd)
+- [Microsoft Edge Web Store](https://microsoftedge.microsoft.com/addons/detail/iniekdlcmmpkhpmpppdeedfkfddebdkd) [![Static Badge](https://img.shields.io/badge/microsoft%20web%20store_-v1.4.4-blue)](https://microsoftedge.microsoft.com/addons/detail/iniekdlcmmpkhpmpppdeedfkfddebdkd)
 
 
 # Coursera Subtitle Translate Extension
